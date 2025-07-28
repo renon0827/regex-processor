@@ -1,71 +1,57 @@
-# React + TypeScript + Vite
+# 正規表現チェーン変換ツール
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+複数の正規表現ルールを組み合わせて、テキストを順番に変換するWebアプリケーションです。
 
-Currently, two official plugins are available:
+## 機能
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+- 複数の正規表現ルールの作成・編集・削除
+- ドラッグ&ドロップによるルールの並び替え
+- リアルタイム変換モード
+- JSONファイルでのルールの保存・読み込み
+- URLでのルール共有
+- 改行などのエスケープシーケンスのサポート
 
-## Expanding the ESLint configuration
+## 使い方
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+1. 「ルールを追加」ボタンをクリックして新しいルールを作成
+2. 検索正規表現と置換文字列を入力
+3. 必要に応じてフラグ（g: 全置換、i: 大小文字無視、m: 複数行）を設定
+4. 入力テキストに変換したいテキストを入力
+5. リアルタイム変換がONの場合は自動で変換、OFFの場合は「変換実行」ボタンをクリック
 
-```js
-export default tseslint.config([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
+## デプロイ
 
-      // Remove tseslint.configs.recommended and replace with this
-      ...tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      ...tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      ...tseslint.configs.stylisticTypeChecked,
+### GitHub Pages へのデプロイ
 
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
+1. リポジトリの Settings → Pages で Source を "GitHub Actions" に設定
+2. main ブランチにプッシュすると自動的にデプロイされます
+
+### 手動デプロイ
+
+```bash
+npm run deploy
 ```
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+## 開発
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
+```bash
+# 依存関係のインストール
+npm install
 
-export default tseslint.config([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
+# 開発サーバーの起動
+npm run dev
+
+# ビルド
+npm run build
+
+# プレビュー
+npm run preview
 ```
-# regex-processor
-# regex-processor
+
+## 技術スタック
+
+- React
+- TypeScript
+- Vite
+- Tailwind CSS
+- @dnd-kit (ドラッグ&ドロップ)
