@@ -1,0 +1,303 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Material Design Typography */
+body {
+  @apply bg-gray-50 text-gray-900 min-h-screen;
+  font-family: 'Roboto', system-ui, -apple-system, sans-serif;
+  letter-spacing: 0.01em;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  @apply font-medium;
+  letter-spacing: -0.01em;
+}
+
+/* Material Design Elevations */
+.elevation-1 {
+  box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
+}
+
+.elevation-2 {
+  box-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23);
+}
+
+.elevation-3 {
+  box-shadow: 0 10px 20px rgba(0,0,0,0.19), 0 6px 6px rgba(0,0,0,0.23);
+}
+
+.elevation-4 {
+  box-shadow: 0 14px 28px rgba(0,0,0,0.25), 0 10px 10px rgba(0,0,0,0.22);
+}
+
+.elevation-5 {
+  box-shadow: 0 19px 38px rgba(0,0,0,0.30), 0 15px 12px rgba(0,0,0,0.22);
+}
+
+/* Material Design Buttons */
+.btn-primary {
+  @apply bg-blue-600 hover:bg-blue-700 text-white font-medium py-2 px-4 rounded-md uppercase tracking-wider text-sm transition-all duration-150;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.2);
+}
+
+.btn-primary:hover {
+  box-shadow: 0 4px 8px rgba(0,0,0,0.25);
+}
+
+.btn-primary:active {
+  box-shadow: 0 1px 2px rgba(0,0,0,0.2);
+}
+
+.btn-primary:disabled {
+  @apply bg-gray-400 cursor-not-allowed opacity-60;
+  box-shadow: none;
+}
+
+.btn-primary:disabled:hover {
+  @apply bg-gray-400;
+  box-shadow: none;
+}
+
+.btn-secondary {
+  @apply bg-white hover:bg-gray-50 text-blue-600 font-medium py-2 px-4 rounded-md border border-gray-300 uppercase tracking-wider text-sm transition-all duration-150;
+}
+
+.btn-danger {
+  @apply bg-red-600 hover:bg-red-700 text-white font-medium py-2 px-4 rounded-md uppercase tracking-wider text-sm transition-all duration-150;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.2);
+}
+
+.btn-icon {
+  @apply inline-flex items-center justify-center w-10 h-10 rounded-full hover:bg-gray-100 text-gray-700 transition-all duration-150;
+}
+
+/* Material Design Inputs */
+.input-field {
+  @apply w-full px-3 py-2 border-b-2 border-gray-300 bg-transparent focus:border-blue-600 focus:outline-none transition-colors duration-200;
+}
+
+.textarea-field {
+  @apply w-full px-3 py-2 border-2 border-gray-300 rounded-md bg-white focus:border-blue-600 focus:outline-none transition-colors duration-200;
+}
+
+.textarea-resizable {
+  resize: vertical;
+  min-height: 10rem;
+  max-height: 50rem;
+}
+
+/* Custom resize handle styling */
+.textarea-resizable {
+  position: relative;
+}
+
+.textarea-resizable::after {
+  content: '';
+  position: absolute;
+  bottom: 2px;
+  right: 2px;
+  width: 16px;
+  height: 16px;
+  background-image: linear-gradient(
+    -45deg,
+    transparent 0%,
+    transparent 40%,
+    #9ca3af 40%,
+    #9ca3af 60%,
+    transparent 60%,
+    transparent 100%
+  );
+  background-size: 5px 5px;
+  pointer-events: none;
+  opacity: 0.6;
+}
+
+.textarea-resizable:hover::after {
+  opacity: 1;
+}
+
+/* Material Design Cards */
+.card {
+  @apply bg-white rounded-lg overflow-hidden;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+.card:hover {
+  box-shadow: 0 4px 8px rgba(0,0,0,0.15);
+}
+
+/* Material Design Modal */
+.modal-backdrop {
+  @apply fixed inset-0 bg-black bg-opacity-50 z-50 flex items-center justify-center p-4;
+}
+
+.modal-content {
+  @apply bg-white rounded-lg max-w-lg w-full max-h-[90vh] overflow-y-auto;
+  box-shadow: 0 11px 15px -7px rgba(0,0,0,0.2), 0 24px 38px 3px rgba(0,0,0,0.14), 0 9px 46px 8px rgba(0,0,0,0.12);
+  animation: modal-scale-in 0.3s ease-out;
+}
+
+/* Material Design List Items */
+.rule-item {
+  @apply bg-white rounded-lg border border-gray-200 px-3 py-2 transition-shadow duration-150 hover:shadow-md;
+}
+
+.rule-code {
+  @apply font-mono text-sm bg-gray-100 px-2 py-1 rounded text-gray-700 inline-block;
+}
+
+/* Material Design Checkbox */
+.checkbox-custom {
+  @apply w-5 h-5 rounded border-2 border-gray-400 text-blue-600 focus:ring-2 focus:ring-blue-500 focus:ring-opacity-30 transition-colors duration-150;
+}
+
+/* Material Design Toggle Switch */
+.toggle-switch {
+  @apply relative inline-block w-14 h-8;
+}
+
+.toggle-switch input {
+  @apply opacity-0 w-0 h-0;
+}
+
+.toggle-slider {
+  @apply absolute cursor-pointer inset-0 bg-gray-400 transition-all duration-200 rounded-full;
+}
+
+.toggle-slider:before {
+  @apply absolute content-[''] h-6 w-6 left-1 bottom-1 bg-white rounded-full transition-all duration-200;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.2);
+}
+
+input:checked + .toggle-slider {
+  @apply bg-blue-600;
+}
+
+input:checked + .toggle-slider:before {
+  transform: translateX(22px);
+}
+
+input:disabled + .toggle-slider {
+  @apply opacity-50 cursor-not-allowed;
+}
+
+/* Material Design Animations */
+@keyframes modal-scale-in {
+  from {
+    opacity: 0;
+    transform: scale(0.9);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+@keyframes ripple {
+  to {
+    transform: scale(4);
+    opacity: 0;
+  }
+}
+
+.animate-fade-in {
+  animation: fade-in 0.2s ease-out;
+}
+
+@keyframes fade-in {
+  from {
+    opacity: 0;
+    transform: translateY(4px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Material Design Ripple Effect */
+.ripple {
+  position: relative;
+  overflow: hidden;
+}
+
+.ripple::before {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 0;
+  height: 0;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.5);
+  transform: translate(-50%, -50%);
+  transition: width 0.6s, height 0.6s;
+}
+
+.ripple:active::before {
+  width: 300px;
+  height: 300px;
+}
+
+/* Material Design FAB */
+.fab {
+  @apply fixed bottom-6 right-6 w-14 h-14 bg-blue-600 hover:bg-blue-700 text-white rounded-full flex items-center justify-center transition-all duration-150;
+  box-shadow: 0 6px 10px rgba(0,0,0,0.3);
+}
+
+.fab:hover {
+  box-shadow: 0 8px 16px rgba(0,0,0,0.35);
+}
+
+/* Material Design Typography Scale */
+.text-display-4 {
+  @apply text-6xl font-light leading-tight;
+}
+
+.text-display-3 {
+  @apply text-5xl font-normal leading-tight;
+}
+
+.text-display-2 {
+  @apply text-4xl font-normal leading-tight;
+}
+
+.text-display-1 {
+  @apply text-3xl font-normal leading-tight;
+}
+
+.text-headline {
+  @apply text-2xl font-normal leading-tight;
+}
+
+.text-title {
+  @apply text-xl font-medium;
+}
+
+.text-subheading {
+  @apply text-base font-normal;
+}
+
+.text-body-2 {
+  @apply text-sm font-medium;
+}
+
+.text-body-1 {
+  @apply text-sm font-normal;
+}
+
+.text-caption {
+  @apply text-xs font-normal;
+}
+
+/* Remove focus outline and add Material Design focus */
+*:focus {
+  outline: none;
+}
+
+input:focus,
+textarea:focus,
+select:focus {
+  @apply ring-2 ring-blue-500 ring-opacity-30;
+}
